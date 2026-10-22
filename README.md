@@ -4,9 +4,9 @@
 
 **One leader. Multiple coding agents. Work carried through to verified delivery.**
 
-Agent Team Lead is a proposed cross-harness skill and supporting runtime for managing coding-agent teams. A coordinating agent owns planning, delegation, follow-up, recovery, and acceptance. Execution agents implement, test, and resolve review findings. The human sets direction, sees progress, and handles decisions that require their authority.
+Agent Team Lead is a proposed cross-harness skill and supporting runtime for managing coding-agent teams. A coordinating agent owns planning, delegation, follow-up, recovery, and acceptance. Execution agents implement, test, and resolve review findings. The user (project owner) sets direction, sees progress, and handles decisions that require their authority.
 
-The project focuses on verified delivery, useful progress updates, and keeping subscription quota available while reducing the owner’s attention and coordination burden. It defines outcomes and responsibilities, leaves room for agent judgment, and reuses project quality checks and native automation.
+The project focuses on verified delivery, useful progress updates, and keeping usage within available limits while reducing the user’s attention and coordination burden. It defines outcomes and responsibilities, leaves room for agent judgment, and reuses project quality checks and native automation.
 
 ## Project status
 
@@ -18,7 +18,7 @@ Both real-project experiments—parallel frontend migration and a webhook servic
 
 | Role | Responsibility |
 | --- | --- |
-| Human / project owner | Set outcomes and constraints, view progress, and decide matters outside delegated authority. |
+| User / project owner | Set outcomes and constraints, view progress, and decide matters outside delegated authority. |
 | Coordinating agent / leader | Own the task lifecycle, select executors, manage dependencies, resolve blockers, verify delivery, and arrange cleanup. |
 | Execution agent | Implement within scope, run checks, complete the configured independent-review and repair loop, and leave evidence and handoff records. |
 | Deterministic runtime | Track processes and events, validate records, deduplicate notifications, monitor health, and perform authorized lifecycle operations. |
