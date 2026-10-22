@@ -12,7 +12,7 @@ Agent Team Lead 拟提供跨 Harness 的团队管理 Skill 及配套运行工具
 
 **目前仅有设计文档，尚无可安装的 Skill、运行工具、Harness 适配器或插件。**
 
-设计来自两个尚在进行的真实项目实验：并行前端迁移和 Webhook 服务。两项实验尚未全部完成，现有表现不构成兼容性或可靠性保证。待复盘交付、恢复及清理经验后，再开始实现。
+并行前端迁移和 Webhook 服务两个真实项目实验均已结束。证据核对已用于编写[首版设计与实施计划](docs/v0-design.md)（待确认），不构成兼容性或可靠性保证。目前尚未开始实现，等待首版范围确认。
 
 ## 职责划分
 
@@ -57,9 +57,9 @@ Claude Code、Codex、Antigravity、OpenCode 和 DeepSeek Harness 是候选集�
 
 ## 实现前的工作
 
-- 完成并复盘两个实验，包括权限阻塞、长命令无输出、通知失败、恢复和清理。
-- 评估 [delegate-skills](https://github.com/amElnagdy/delegate-skills)、[acpx](https://github.com/openclaw/acpx) 和 [CLI Agent Orchestrator](https://github.com/awslabs/cli-agent-orchestrator) 的可复用部分；尚未选定依赖或复用代码。
-- 定义精简的任务、运行、事件与交付约定及能力矩阵，只实现第一条已验证执行路径。
+- 确认设计中的单执行路径、证据边界、契约和验收场景；原始复盘仅本地保留，不纳入 Git。
+- 优先复用宿主和项目已有机制。[delegate-skills](https://github.com/amElnagdy/delegate-skills)、[acpx](https://github.com/openclaw/acpx) 和 [CLI Agent Orchestrator](https://github.com/awslabs/cli-agent-orchestrator) 保留为参考；首版未选用第三方依赖或源码复用。
+- 确认后实现精简的任务、运行、事件与交付约定，先验证选定路径，再扩展集成。
 - 衡量人工介入、上下文恢复负担、协调模型调用次数和实际交付结果；测量前不承诺节省比例。
 
 ## 参与贡献

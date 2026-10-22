@@ -12,7 +12,7 @@ Agent Team Lead は、異なるハーネスを使う開発エージェントの�
 
 **現在は設計文書のみです。インストール可能なスキル、実行ツール、アダプター、プラグインはまだありません。**
 
-設計は、フロントエンド移行の並行実行と Webhook サービス開発という、進行中の二つの実案件での実験に基づきます。両方の実験が完了したわけではなく、現時点の動作は互換性や信頼性の保証にはなりません。成果物の引き渡し、復旧、後片付けの経験を整理してから実装を始めます。
+フロントエンド移行の並行実行と Webhook サービス開発という二つの実案件での実験は終了しました。証拠の確認結果を[初版の設計・実装計画](docs/v0-design.md)（中国語、承認待ち）にまとめています。互換性や信頼性を保証するものではありません。実装はまだ開始しておらず、初版の範囲の承認を待っています。
 
 ## 役割
 
@@ -57,9 +57,9 @@ Claude Code、Codex、Antigravity、OpenCode、DeepSeek Harness は連携候補�
 
 ## 実装前に行うこと
 
-- 二つの実験を完了し、権限待ち、出力のない長時間コマンド、通知失敗、復旧、後片付けを振り返ります。
-- [delegate-skills](https://github.com/amElnagdy/delegate-skills)、[acpx](https://github.com/openclaw/acpx)、[CLI Agent Orchestrator](https://github.com/awslabs/cli-agent-orchestrator) の再利用可能な部分を評価します。依存関係やコードの再利用は未決定です。
-- 小さなタスク・実行・イベント・成果物の契約と能力表を定義し、最初に検証できた実行経路だけを実装します。
+- 設計案の単一実行経路、証拠の限界、契約、受け入れシナリオを確認します。非公開の振り返り資料は Git に含めません。
+- ホストとプロジェクトの既存機能を優先します。[delegate-skills](https://github.com/amElnagdy/delegate-skills)、[acpx](https://github.com/openclaw/acpx)、[CLI Agent Orchestrator](https://github.com/awslabs/cli-agent-orchestrator) は参考候補であり、初版の外部依存やソースコードの再利用は選定していません。
+- 承認後、小さなタスク・実行・イベント・成果物の契約を実装し、選定した経路を検証してから連携を拡張します。
 - 人による介入、コンテキスト復元の負担、調整モデルの呼び出し回数、検証済み成果を測定します。測定前に削減率を主張しません。
 
 ## コントリビューション

@@ -12,7 +12,7 @@ The project focuses on reducing human coordination and context switching, not si
 
 **Design only. No installable skill, runtime, harness adapter, or plugin is included yet.**
 
-Two ongoing real-project experiments inform this design: parallel frontend migration and a webhook service. They are not both complete, and their current behavior is not a compatibility or reliability guarantee. Implementation will begin after their delivery, recovery, and cleanup lessons have been reviewed.
+Both real-project experiments—parallel frontend migration and a webhook service—have ended. Their evidence informs the [first-version design and implementation plan](docs/v0-design.md) (Chinese, pending approval). Evidence review does not establish a compatibility or reliability guarantee. Implementation has not started and awaits scope approval.
 
 ## Responsibilities
 
@@ -57,9 +57,9 @@ The intended distribution is one source repository with an Agent Skills package 
 
 ## Before implementation
 
-- Finish and review both experiments, including permission blocking, quiet long-running commands, notification failure, recovery, and cleanup.
-- Decide what to reuse from existing projects such as [delegate-skills](https://github.com/amElnagdy/delegate-skills), [acpx](https://github.com/openclaw/acpx), and [CLI Agent Orchestrator](https://github.com/awslabs/cli-agent-orchestrator). No dependency or code reuse is selected yet.
-- Define a small task/run/event/delivery contract and capability matrix, then implement only the first proven execution path.
+- Confirm the proposed single execution path, evidence limitations, contracts, and acceptance scenarios in the design plan; keep private retrospective material outside Git.
+- Reuse existing host and project mechanisms first. Projects such as [delegate-skills](https://github.com/amElnagdy/delegate-skills), [acpx](https://github.com/openclaw/acpx), and [CLI Agent Orchestrator](https://github.com/awslabs/cli-agent-orchestrator) remain references; no third-party dependency or source-code reuse is selected for the first version.
+- After approval, implement and validate the small task/run/event/delivery contract on the selected path before adding integrations.
 - Measure human interventions, context-recovery effort, coordinator model invocations, and verified task outcomes. Do not claim savings before measurement.
 
 ## Contributing
