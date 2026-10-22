@@ -6,13 +6,21 @@
 
 Agent Team Lead is a proposed cross-harness skill and supporting runtime for managing coding-agent teams. A coordinating agent owns planning, delegation, follow-up, recovery, and acceptance. Execution agents implement, test, and resolve review findings. The user (project owner) sets direction, sees progress, and handles decisions that require their authority.
 
-The project focuses on verified delivery, useful progress updates, and keeping usage within available limits while reducing the user’s attention and coordination burden. It defines outcomes and responsibilities, leaves room for agent judgment, and reuses project quality checks and native automation.
+The project focuses on cross-tool coordination when development is delegated to another agent tool, for example to preserve a coordinator’s limited subscription quota. Native subagents can handle in-tool parallel work; this project addresses differences in permissions, sessions, notifications, and recovery across tools. It extracts reusable workflows and scripts from practical experience. The motivating problem is manual relay: users copying a coordinator’s handoff prompt into an executor, then copying its report back. The intended workflow has the coordinator send handoffs, retrieve results, and request repairs directly.
+
+It aims for verified delivery, useful progress updates, and keeping usage within available limits while reducing the user’s attention and coordination burden. It defines outcomes and responsibilities, leaves room for agent judgment, and reuses project quality checks and native automation.
 
 ## Project status
 
-**Design only. No installable skill, runtime, harness adapter, or plugin is included yet.**
+**An initial instruction-only skill is available in source. No bundled runtime, validated cross-tool adapter, or plugin is included yet.**
 
-Both real-project experiments—parallel frontend migration and a webhook service—have ended. Their evidence informs the [first-version design review draft](docs/v0-design.md) (Chinese, pending approval). Evidence review does not establish a compatibility or reliability guarantee. Implementation has not started and awaits scope approval.
+Both real-project experiments—parallel frontend migration and a webhook service—have ended. Their evidence informs the [first-version design](docs/v0-design.md) and [skill implementation record](docs/implementation-plan.md) (Chinese). The initial skill is not an end-to-end compatibility or reliability guarantee.
+
+## Try the initial skill
+
+The source package is [`skills/agent-team-lead`](skills/agent-team-lead/SKILL.md). Load that folder using your host’s supported skill installation method, then ask the agent to coordinate a development task in another agent tool. The current conversation becomes the coordinator and presents a kickoff brief before dispatch. An optional [task-record outline](skills/agent-team-lead/assets/task-record.md) helps projects without existing handoff records.
+
+The skill provides instructions, not an execution or notification service. Actual cross-tool use requires supported worker lifecycle interfaces, suitable permissions, accessible project records, and a notification or agreed manual continuation path. No cross-tool path has been validated with this new skill yet.
 
 ## Responsibilities
 
@@ -40,6 +48,8 @@ The leader remains responsible for progress. A worker returning a result is a ha
 
 ## Intended architecture
 
+This table describes responsibilities and the longer-term direction. The first version will validate one execution path and add only the mechanisms that path needs.
+
 | Layer | Intended contents |
 | --- | --- |
 | Portable skill | Leadership workflow, delegation contract, recovery decisions, acceptance, and reporting rules. |
@@ -55,11 +65,11 @@ The design does not promise equivalent capabilities across harnesses, unlimited 
 
 The intended distribution is one source repository with an Agent Skills package installable through `npx skills`, plus Codex and Claude Code plugin packaging. These are **planned**, not available installation methods. Runtime dependencies, host permissions, background-service setup, and adapter compatibility will be documented separately; installing a skill does not automatically provision them.
 
-## Before implementation
+## Next steps
 
-- Review the first-version goals, user experience, responsibilities, scope, and acceptance scenarios; keep private retrospective material outside Git.
+- Validate the skill on a concrete cross-tool path against the design’s user experience and acceptance scenarios; keep private retrospective material outside Git.
 - Reuse existing host and project mechanisms first. Projects such as [delegate-skills](https://github.com/amElnagdy/delegate-skills), [acpx](https://github.com/openclaw/acpx), and [CLI Agent Orchestrator](https://github.com/awslabs/cli-agent-orchestrator) remain references; no third-party dependency or source-code reuse is selected for the first version.
-- After written-design approval, prepare an implementation plan that selects and justifies one concrete execution path, including executor-side automatic approvals and recovery; obtain approval before implementation.
+- Select and justify one concrete execution path, verify executor-side automatic approvals and coordinator handover, then plan only the runtime mechanisms needed for that path.
 - Measure human interventions, context-recovery effort, coordinator model invocations, and verified task outcomes. Do not claim savings before measurement.
 
 ## Contributing
