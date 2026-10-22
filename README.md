@@ -6,13 +6,13 @@
 
 Agent Team Lead is a proposed cross-harness skill and supporting runtime for managing coding-agent teams. A coordinating agent owns planning, delegation, follow-up, recovery, and acceptance. Execution agents implement, test, and resolve review findings. The human sets direction, sees progress, and handles decisions that require their authority.
 
-The project focuses on reducing human coordination and context switching, not simply launching more agents.
+The project focuses on verified delivery, useful progress updates, and keeping subscription quota available while reducing the owner’s attention and coordination burden. It defines outcomes and responsibilities, leaves room for agent judgment, and reuses project quality checks and native automation.
 
 ## Project status
 
 **Design only. No installable skill, runtime, harness adapter, or plugin is included yet.**
 
-Both real-project experiments—parallel frontend migration and a webhook service—have ended. Their evidence informs the [first-version design and implementation plan](docs/v0-design.md) (Chinese, pending approval). Evidence review does not establish a compatibility or reliability guarantee. Implementation has not started and awaits scope approval.
+Both real-project experiments—parallel frontend migration and a webhook service—have ended. Their evidence informs the [first-version design review draft](docs/v0-design.md) (Chinese, pending approval). Evidence review does not establish a compatibility or reliability guarantee. Implementation has not started and awaits scope approval.
 
 ## Responsibilities
 
@@ -57,9 +57,9 @@ The intended distribution is one source repository with an Agent Skills package 
 
 ## Before implementation
 
-- Confirm the proposed single execution path, evidence limitations, contracts, and acceptance scenarios in the design plan; keep private retrospective material outside Git.
+- Review the first-version goals, user experience, responsibilities, scope, and acceptance scenarios; keep private retrospective material outside Git.
 - Reuse existing host and project mechanisms first. Projects such as [delegate-skills](https://github.com/amElnagdy/delegate-skills), [acpx](https://github.com/openclaw/acpx), and [CLI Agent Orchestrator](https://github.com/awslabs/cli-agent-orchestrator) remain references; no third-party dependency or source-code reuse is selected for the first version.
-- After approval, implement and validate the small task/run/event/delivery contract on the selected path before adding integrations.
+- After written-design approval, prepare an implementation plan that selects and justifies one concrete execution path, including executor-side automatic approvals and recovery; obtain approval before implementation.
 - Measure human interventions, context-recovery effort, coordinator model invocations, and verified task outcomes. Do not claim savings before measurement.
 
 ## Contributing
